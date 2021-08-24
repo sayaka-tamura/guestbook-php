@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Mail Form_1.Input</title>
+    <title>Guset Book_1.Input</title>
   </head>
   <body>
     <h1>Mail Form_1.Input</h1>
