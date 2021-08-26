@@ -12,10 +12,10 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Mail Form</title>
+    <title>Guset Book</title>
   </head>
   <body>
-    <h1>Mail Form_3.Submit</h1>
+    <h1>Guset Book_3.Submit</h1>
         <!-- 処理結果を表示 -->
 
     <?php

@@ -11,11 +11,11 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Mail Form</title>
+    <title>Guset Book</title>
   </head>
 
   <body>
-    <h1>Mail Form_2.Confirm</h1>
+    <h1>Guset Book_2.Confirm</h1>
     <p>Please Check Input Contents</p>
     <?php
       if(empty($_POST["uname"])){
