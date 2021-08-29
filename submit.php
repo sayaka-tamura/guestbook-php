@@ -46,7 +46,7 @@
 <!-- 処理結果の表示 -->
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Guset Book</title>
   </head>
   <body>
@@ -54,7 +54,7 @@
         <!-- 処理結果を表示 -->
 
     <p>Additional Completion Page</p>
-    <p><?php echo $message; ?>></p>
+    <p><?php echo $message; ?></p>
     <table border="1">
       <tr>
         <td>Name</td>
