@@ -9,16 +9,16 @@
       <table border="1">
         <tr>
           <td>Name</td>
-          <td><input type="text" name="uname" size="30"></td>
+          <td><input type="text" name="m_name" size="30"></td>
         </tr>
         <tr>
           <td>Email Address</td>
-          <td><input type="text" name="email" size="30"></td>
+          <td><input type="text" name="m_email" size="30"></td>
         </tr>
         <tr>
           <td>Message</td>
           <td>
-            <textarea name="message" cols="30" rows="5"></textarea>
+            <textarea name="m_message" cols="30" rows="5"></textarea>
           </td>
         </tr>
         <tr>
