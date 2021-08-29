@@ -1,8 +1,4 @@
 <?php
-  if(empty($_SESSION)){
-    echo "Ended this process";
-    exit;
-  }
   // Session Start
   session_start();
 

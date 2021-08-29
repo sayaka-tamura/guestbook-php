@@ -1,7 +1,7 @@
 <?php
   // Session Start
   session_start();
-  if(empty($_POST)){
+  if(empty($_SESSION)){
     echo "Ended this process";
     exit;
   }
