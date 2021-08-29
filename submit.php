@@ -11,8 +11,14 @@ $user = "root";
 $pass = "password";
 
 // データベースに接続
-$dsn = "$dbtype:dbname=$dbname;host=$sv";
-$conn = new PDO($dsn, $user, $pass);
+try{
+  $dsn = "$dbtype:dbname=$dbname;host=$sv;port=3306; charset=utf8";
+  $conn = new PDO($dsn, $user, $pass);
+  print '接続に成功しました。';
+} catch(PDOException $e){
+  print "接続エラー:{$e->getMessage()}";
+}
+// $conn = null;
 
 // 入力内容の取得（$_SESSIONから）
 $m_name = htmlspecialchars($_SESSION["m_name"], ENT_QUOTES, "UTF-8");
