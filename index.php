@@ -13,7 +13,7 @@
         </tr>
         <tr>
           <td>Email Address</td>
-          <td><input type="text" name="m_email" size="30"></td>
+          <td><input type="text" name="m_mail" size="30"></td>
         </tr>
         <tr>
           <td>Message</td>
