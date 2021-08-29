@@ -6,6 +6,31 @@
   // Session Start
   session_start();
 
+  // 入力値の取得・検証・加工
+  $m_name = chkString($_POST["m_name"], "Name");
+  $m_mail = chkString($_POST["m_mail"], "E-mail address", true); // ture -> check 省略
+  $m_message = chkString($_POST["m_message"], "Message");
+  
+  // 入力値をセッション変数に格納
+  $_SESSION["m_name"] = $m_name;
+  $_SESSION["m_mail"] = $m_mail;
+  $_SESSION["m_message"] = $m_message;
+
+  // 入力値の検証・加工
+  function chkString($temp="", $field, $accept_empty=false){
+    // 未入力チェック
+    if(empty($temp) AND !$accept_empty){
+      echo "{$field}には何か入力してください";
+      exit;
+    }
+
+    // 入力内容を安全な値に
+    $temp = htmlspecialchars($temp, ENT_QUOTES, "UTF-8");
+    
+    // 戻り値
+    return $temp;
+  }
+
 ?>
 
 <html>
@@ -15,69 +40,27 @@
   </head>
 
   <body>
-    <h1>Guset Book_2.Confirm</h1>
-    <p>Please Check Input Contents</p>
-    <?php
-      if(empty($_POST["uname"])){
-        echo "Please type your name";
-        exit;
-      }
-      if(empty($_POST["email"])){
-        echo "Please type your email";
-        exit;
-      }
-      if(empty($_POST["message"])){
-        echo "Please type your message";
-        exit;
-      }
-
-      function h($str) {
-        return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
-      }
-
-      $uname = $_POST["uname"];
-      $email = $_POST["email"];
-      $message = $_POST["message"];
-
-      // Email address validation
-      if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        echo "This is not email.";
-        $email=null;
-        exit;
-      }
-      
-      $uname = h($uname);
-      $email = h($email);
-      $message = h($message);
-
-      $_SESSION["uname"] = $uname;
-      $_SESSION["email"] = $email;
-      $_SESSION["message"] = $message;
-
-      // var_dump($_SESSION);
-    ?>
-    
+    <p>Extra Confirm Page</p>
     <form method="post" action="submit.php">
       <table border="1">
         <tr>
           <td>Name</td>
-          <td width="300"><?php echo $uname; ?></td>
+          <td><?php echo $m_name; ?></td>
         </tr>
         <tr>
           <td>Email Address</td>
-          <td width="300"><?php echo $email; ?></td>
+          <td><?php echo $m_mail; ?></td>
         </tr>
         <tr>
           <td>Message</td>
-          <td width="300"><?php echo nl2br($message); ?></td>
+          <td><?php echo nl2br($m_message); ?></td>
         </tr>
         <tr>
-          <td align="right" colspan="2">
-            <input type="submit" name="sub1" value="Submit">
+          <td colspan="2">
+            <input type="submit" value="Submit">
           </td>
         </tr>
       </table>
-      <!-- hidden field -> Deleted -->
     </form>
   </body>
 </html>
