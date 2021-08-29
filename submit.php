@@ -14,11 +14,13 @@ $pass = "password";
 try{
   $dsn = "$dbtype:dbname=$dbname;host=$sv;port=3306;charset=utf8";
   $conn = new PDO($dsn, $user, $pass);
-  print '接続に成功しました。';
+  print 'Connected Successfully';
+  //$conn = null;
 } catch(PDOException $e){
   print "接続エラー:{$e->getMessage()}";
+  exit;
 }
-// $conn = null;
+
 
 // 入力内容の取得（$_SESSIONから）
 $m_name = htmlspecialchars($_SESSION["m_name"], ENT_QUOTES, "UTF-8");
