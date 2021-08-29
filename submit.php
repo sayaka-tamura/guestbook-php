@@ -12,7 +12,7 @@ $pass = "password";
 
 // データベースに接続
 try{
-  $dsn = "$dbtype:dbname=$dbname;host=$sv;port=3306; charset=utf8";
+  $dsn = "$dbtype:dbname=$dbname;host=$sv;port=3306;charset=utf8";
   $conn = new PDO($dsn, $user, $pass);
   print '接続に成功しました。';
 } catch(PDOException $e){
