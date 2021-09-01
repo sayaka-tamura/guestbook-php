@@ -1,4 +1,7 @@
 <?php
+  // Session Start
+  session_start();
+  
   // 表示するデータの主キーを取得
   if(!isset($_GET["m_id"])){
     exit;

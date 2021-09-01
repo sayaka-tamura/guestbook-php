@@ -4,7 +4,7 @@
     <title>Guset Book</title>
   </head>
   <body>
-    <h1>Guset Book_1.Input</h1>
+    <h1>Guset Book</h1>
     <form method="post" action="confirm.php">
       <table border="1">
         <tr>
