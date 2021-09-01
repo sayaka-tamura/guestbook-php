@@ -48,21 +48,21 @@
       // 取得したデータを一覧表示
       while($row = $stmt->fetch()){
         // ID出力
-        echo "<hr>{$row["m_id"]}:";
+        echo "<hr>{$row["m_id"]}:"."&nbsp;&nbsp;";
         if (!empty($row["m_mail"])){
           // e-mail が入力されていたら、mailTo のリンク生成
-          echo "<a href=\"mailto:".$row["m_mail"]."\">".$row["m_name"]."</a>"; 
+          echo "<a href=\"mailto:".$row["m_mail"]."\">".$row["m_name"]."</a>&nbsp;&nbsp;"; 
         } else {
           // そうでなければ名前出力
-          echo $row["m_name"]."\t";
+          echo $row["m_name"]."&nbsp;&nbsp;";
         }
         // 日付とメッセージ出力
         echo "(".date("Y/m/d H:i", strtotime($row["m_dt"])).")";
         echo "<p>".nl2br($row["m_message"])."</p>";
 
         // 変更・削除・詳細表示画面へのリンク
-        echo "<a href=\"update.php?m_id=".$row["m_id"]."\">Update</a>"."\t";
-        echo "<a href=\"delete-confirm.php?m_id=".$row["m_id"]."\">Delete</a>"."\t";
+        echo "<a href=\"update.php?m_id=".$row["m_id"]."\">Update</a>"."&nbsp;&nbsp;";
+        echo "<a href=\"delete-confirm.php?m_id=".$row["m_id"]."\">Delete</a>"."&nbsp;&nbsp;";
         echo "<a href=\"detail.php?m_id=".$row["m_id"]."\">Detail</a>";
       }
     ?>
