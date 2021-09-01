@@ -33,7 +33,7 @@
 
   <body>
     <p>Update Information Page</p>
-    <form  action="POST" method="update-confirm.php"></form>
+    <form  method="POST" action="update-confirm.php">
       <table border="1">
         <tr>
           <td>Name</td>
@@ -45,7 +45,7 @@
         </tr>
         <tr>
           <td>Message</td>
-          <td><textarea cols="30" rows="5" name="m_message"><?php echo nl2br($row["m_message"]); ?></textarea></td>
+          <td><textarea cols="30" rows="5" name="m_message"><?php echo $row["m_message"]; ?></textarea></td>
         </tr>
         <tr>
           <td colspan="2">
@@ -53,5 +53,6 @@
           </td>
         </tr>
       </table>
+    </form>
   </body>
 </html>
