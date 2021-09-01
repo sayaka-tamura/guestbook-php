@@ -54,15 +54,15 @@
           echo "<a href=\"mailto:".$row["m_mail"]."\">".$row["m_name"]."</a>"; 
         } else {
           // そうでなければ名前出力
-          echo $row["m_name"];
+          echo $row["m_name"]."\t";
         }
         // 日付とメッセージ出力
         echo "(".date("Y/m/d H:i", strtotime($row["m_dt"])).")";
         echo "<p>".nl2br($row["m_message"])."</p>";
 
         // 変更・削除・詳細表示画面へのリンク
-        echo "<a href=\"update.php?m_id=".$row["m_id"]."\">Update</a>"." ";
-        echo "<a href=\"delete-confirm.php?m_id=".$row["m_id"]."\">Delete</a>"." ";
+        echo "<a href=\"update.php?m_id=".$row["m_id"]."\">Update</a>"."\t";
+        echo "<a href=\"delete-confirm.php?m_id=".$row["m_id"]."\">Delete</a>"."\t";
         echo "<a href=\"detail.php?m_id=".$row["m_id"]."\">Detail</a>";
       }
     ?>
