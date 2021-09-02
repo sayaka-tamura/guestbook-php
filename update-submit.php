@@ -34,7 +34,7 @@
   // エラーチェック
   $error = $stmt->errorInfo();
   if($error[0] != "00000"){
-    $message = "データの追加に失敗しました。{$error[2]}";
+    $message = "データの変更に失敗しました。{$error[2]}";
   } else {
     $message = "データを変更しました。";
   }
