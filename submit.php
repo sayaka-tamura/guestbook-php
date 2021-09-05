@@ -5,12 +5,7 @@ if (empty($_SESSION)) {
   echo "Ended this process";
   exit;
 }
-// 接続設定
-$dbtype = "mysql";
-$sv = "localhost";
-$dbname = "guestbook";
-$user = "root";
-$pass = "password";
+
 
 // DB に接続
 try {
@@ -21,6 +16,27 @@ try {
   exit;
 }
 
+$db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
+$db['dbname'] = ltrim($db['path'], '/');
+$dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
+
+try {
+  $db = new PDO($dsn, $db['message'], $db['pass']);
+  $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo 'Error: ' . h($e->getMessage());
+}
+
+function h($var)
+{
+  if (is_array($var)) {
+      return array_map('h', $var);
+  } else {
+      return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
+  }
+}
+
 // 入力内容の取得（$_SESSION から）
 $m_name = htmlspecialchars($_SESSION["m_name"], ENT_QUOTES, "UTF-8");
 $m_mail = htmlspecialchars($_SESSION["m_mail"], ENT_QUOTES, "UTF-8");
@@ -28,14 +44,14 @@ $m_message = htmlspecialchars($_SESSION["m_message"], ENT_QUOTES, "UTF-8");
 
 // データの追加
 $sql = "INSERT INTO message (m_name, m_mail, m_message, m_dt) VALUES (:m_name, :m_mail, :m_message, NOW())";
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(":m_name", $m_name);
-$stmt->bindParam(":m_mail", $m_mail);
-$stmt->bindParam(":m_message", $m_message);
-$stmt->execute();
+$prepare = $conn->prepare($sql);
+$prepare->bindParam(":m_name", $m_name);
+$prepare->bindParam(":m_mail", $m_mail);
+$prepare->bindParam(":m_message", $m_message);
+$prepare->execute();
 
 // エラーチェック
-$error = $stmt->errorInfo();
+$error = $prepare->errorInfo();
 if ($error[0] != "00000") {
   $message = "データの追加に失敗しました。{$error[2]}";
 } else {
