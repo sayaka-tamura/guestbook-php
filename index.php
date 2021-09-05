@@ -10,9 +10,9 @@ $options = array(
 );
 
 try {
-    $db = new PDO($dsn, $db['user'], $db['pass'], $options);
+    $db = new PDO($dsn, $db['message'], $db['pass'], $options);
 
-    $sql = 'SELECT * FROM user';
+    $sql = 'SELECT * FROM message';
     $prepare = $db->prepare($sql);
     $prepare->execute();
 
