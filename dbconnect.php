@@ -1,5 +1,5 @@
 <?php
-  // 接続設定
+  <!-- // 接続設定
   $dbtype = "mysql";
   $sv = "localhost";
   $dbname = "guestbook";
@@ -10,22 +10,23 @@
   $dsn = "$dbtype:dbname=$dbname;host=$sv";
   $conn = new PDO($dsn, $user, $pass);
 
-  return $conn;
-  
-  <!-- $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+  return $conn; -->
 
-  $server = $url["localhost"];
-  $username = $url["root"];
-  $password = $url["password"];
-  $db = substr($url["guestbook"], 1);
+  function dbConnect(){
+    $db = parse_url($_SERVER['mysql://b741e354dd7070:4f8b9150@us-cdbr-east-04.cleardb.com/heroku_f3df070baf09f68?reconnect=true']);
+    $db['guestbook'] = ltrim($db['path'], '/');
+    $dsn = "mysql:host={$db['localhost']};dbname={$db['guestbook']};charset=utf8";
+    $user = $db['root'];
+    $password = $db['password'];
+    $options = array(
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::MYSQL_ATTR_USE_BUFFERED_QUERY =>true,
+    );
+    $dbh = new PDO($dsn,$user,$password,$options);
+    return $dbh;
+  }
 
-  $pdo = new PDO(
-    'mysql:host=' . $server . ';dbname=' . $db . ';charset=utf8mb4',
-    $username,
-    $password,
-    [
-      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-      PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,
-    ] -->
+  //DB接続関数を呼び出して接続
+  $dbh = dbConnect();
 ?>
