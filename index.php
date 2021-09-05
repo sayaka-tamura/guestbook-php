@@ -71,7 +71,7 @@
       </form>
 
       <?php
-      <!-- require('dbconnect.php'); -->
+        <!-- require('dbconnect.php'); -->
         <!-- For localhost -->
         <!-- // 接続設定
         $dbtype = "mysql";
@@ -90,14 +90,35 @@
         $db['dbname'] = ltrim($db['path'], '/');
         $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
         
-        $conn = new PDO($dsn, $db['user'], $db['pass']);
+        try{
+          $conn = new PDO($dsn, $db['user'], $db['pass']);
+          $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          
+          // データの取得
+          $sql = "SELECT * FROM message ORDER BY m_id DESC";
+          $stmt = $conn->prepare($sql);
+          $stmt->execute();
+          echo '<pre>';
+          $prepare->execute();
+          $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+          print_r(h($result));
+          echo "\n";
+          echo '</pre>';
+        } catch (PDOException $e) {
+            echo 'Error: ' . h($e->getMessage());
+        }
+        
+        function h($var)
+        {
+            if (is_array($var)) {
+                return array_map('h', $var);
+            } else {
+                return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
+            }
+        }
 
-        // データの取得
-        $sql = "SELECT * FROM message ORDER BY m_id DESC";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        // 取得したデータを一覧表示
+        <!-- // 取得したデータを一覧表示
         while ($row = $stmt->fetch()) {
           // ID出力
           echo "<hr>{$row["m_id"]}:" . "&nbsp;&nbsp;";
@@ -116,7 +137,7 @@
           echo "<button class='btn btn-light'><a class='link-dark' href=\"update.php?m_id=" . $row["m_id"] . "\">Update</a></button>" . "&nbsp;&nbsp;";
           echo "<button class='btn btn-light'><a class='link-dark' href=\"delete-confirm.php?m_id=" . $row["m_id"] . "\">Delete</a></button>" . "&nbsp;&nbsp;";
           echo "<button class='btn btn-light'><a class='link-dark' href=\"detail.php?m_id=" . $row["m_id"] . "\">Detail</a></button>";
-        }
+        } -->
         ?>
     </main>
     <footer class="my-5 text-white-50">
