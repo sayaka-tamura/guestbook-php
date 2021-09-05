@@ -18,12 +18,12 @@
     $db['dbname'] = ltrim($db['path'], '/');
     $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
     
-    $dbh = new PDO($dsn, $db['user'], $db['pass']);
-    return $dbh;
+    $conn = new PDO($dsn, $db['user'], $db['pass']);
+    return $conn;
   }
 
   //DB接続関数を呼び出して接続
-  $dbh = dbConnect();
+  $conn = dbConnect();
 
   function h($var)
   {
