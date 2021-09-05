@@ -96,14 +96,14 @@
           $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           
           // データの取得
-          $sql = "SELECT * FROM message ORDER BY m_id DESC";
+          $sql = "SELECT * FROM user ORDER BY m_id DESC";
           $stmt = $conn->prepare($sql);
           $stmt->execute();
           echo '<pre>';
-          $prepare->execute();
-          $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
-          print_r(h($result));
-          echo "\n";
+            $prepare->execute();
+            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            print_r(h($result));
+            echo "\n";
           echo '</pre>';
         } catch (PDOException $e) {
             echo 'Error: ' . h($e->getMessage());
