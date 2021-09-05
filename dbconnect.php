@@ -14,20 +14,23 @@
   return $conn; -->
 
   function dbConnect(){
-    $db = parse_url($_SERVER['mysql://b741e354dd7070:4f8b9150@us-cdbr-east-04.cleardb.com/heroku_f3df070baf09f68?reconnect=true']);
-    $db['heroku_f3df070baf09f68'] = ltrim($db['path'], '/');
-    $dsn = "mysql:host={$db['us-cdbr-east-04.cleardb.com']};dbname={$db['heroku_f3df070baf09f68']};charset=utf8";
-    $user = $db['root'];
-    $password = $db['password'];
-    $options = array(
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::MYSQL_ATTR_USE_BUFFERED_QUERY =>true,
-    );
-    $dbh = new PDO($dsn,$user,$password,$options);
+    $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
+    $db['dbname'] = ltrim($db['path'], '/');
+    $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
+    
+    $dbh = new PDO($dsn, $db['user'], $db['pass']);
     return $dbh;
   }
 
   //DB接続関数を呼び出して接続
   $dbh = dbConnect();
+
+  function h($var)
+  {
+      if (is_array($var)) {
+          return array_map('h', $var);
+      } else {
+          return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
+      }
+  }
 ?>
