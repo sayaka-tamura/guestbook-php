@@ -15,8 +15,8 @@
 
   function dbConnect(){
     $db = parse_url($_SERVER['mysql://b741e354dd7070:4f8b9150@us-cdbr-east-04.cleardb.com/heroku_f3df070baf09f68?reconnect=true']);
-    $db['guestbook'] = ltrim($db['path'], '/');
-    $dsn = "mysql:host={$db['us-cdbr-east-04.cleardb.com']};dbname={$db['guestbook']};charset=utf8";
+    $db['heroku_f3df070baf09f68'] = ltrim($db['path'], '/');
+    $dsn = "mysql:host={$db['us-cdbr-east-04.cleardb.com']};dbname={$db['heroku_f3df070baf09f68']};charset=utf8";
     $user = $db['root'];
     $password = $db['password'];
     $options = array(
