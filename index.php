@@ -1,11 +1,11 @@
 <?php
 
-$db = parse_url($_SERVER['mysql://b741e354dd7070:4f8b9150@us-cdbr-east-04.cleardb.com/heroku_f3df070baf09f68?reconnect=true']);
-$db['heroku_f3df070baf09f68'] = ltrim($db['path'], '/');
-$dsn = "mysql:host={$db['us-cdbr-east-04.cleardb.com']};dbname={$db['heroku_f3df070baf09f68']};charset=utf8";
+$db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
+$db['dbname'] = ltrim($db['path'], '/');
+$dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
 
 try {
-    $db = new PDO($dsn, $db['b741e354dd7070'], $db['password']);
+    $db = new PDO($dsn, $db['user'], $db['pass']);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
