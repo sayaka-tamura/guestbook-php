@@ -70,9 +70,28 @@
         </div>
       </form>
 
-        <?php
-        require('dbconnect.php');
+      <?php
+      <!-- require('dbconnect.php'); -->
+        <!-- For localhost -->
+        <!-- // 接続設定
+        $dbtype = "mysql";
+        $sv = "localhost";
+        $dbname = "guestbook";
+        $user = "root";
+        $pass = "password";
+
+        // DB 接続
+        $dsn = "$dbtype:dbname=$dbname;host=$sv";
+        $conn = new PDO($dsn, $user, $pass);
+
+        return $conn; -->
+
+        $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
+        $db['dbname'] = ltrim($db['path'], '/');
+        $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
         
+        $conn = new PDO($dsn, $db['user'], $db['pass']);
+
         // データの取得
         $sql = "SELECT * FROM message ORDER BY m_id DESC";
         $stmt = $conn->prepare($sql);
