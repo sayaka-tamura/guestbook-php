@@ -19,24 +19,24 @@ $db['dbname'] = ltrim($db['path'], '/');
 $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
 
 try{
-  $conn = new PDO($dsn, $db['user'], $db['pass']);
-  $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db = new PDO($dsn, $db['user'], $db['pass']);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
-  // データの取得
-  <!-- $sql = "SELECT * FROM user ORDER BY m_id DESC"; -->
-  $sql = "SELECT * FROM user ORDER BY m_id DESC";
-  $stmt = $conn->prepare($sql);
-  $stmt->execute();
-  
-  echo '<pre>';
+    // データの取得
+    <!-- $sql = "SELECT * FROM user ORDER BY m_id DESC"; -->
+    $sql = "SELECT * FROM user";
+    $prepare = $db->prepare($sql);
     $prepare->execute();
-    $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
-    print_r(h($result));
-    echo "\n";
-  echo '</pre>';
-} catch (PDOException $e) {
-    echo 'Error: ' . h($e->getMessage());
+  
+    echo '<pre>';
+        $prepare->execute();
+        $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+        print_r(h($result));
+        echo "\n";
+    echo '</pre>';
+    } catch (PDOException $e) {
+        echo 'Error: ' . h($e->getMessage());
 }
 
 function h($var)
