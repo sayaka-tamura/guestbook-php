@@ -100,7 +100,11 @@
 
         $row = $prepare->fetch();
         var_dump($row);
-        echo $row['m_id'];
+        echo $row['m_id'].PHP_EOL;
+        echo $row['m_mail'].PHP_EOL;
+        echo $row['m_name'].PHP_EOL;
+        echo $row['m_message'].PHP_EOL;
+        echo $row['m_dt'].PHP_EOL;
       ?>
 
     </main>
