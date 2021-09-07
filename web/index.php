@@ -100,7 +100,7 @@
 
         $row = $prepare->fetch();
         var_dump($row);
-        echo $row["$m_id"];
+        echo "ID No. = ".$row["$m_id"].PHP_EOL;
       ?>
 
     </main>
