@@ -61,7 +61,7 @@
     }
   </style>
   <!-- Custom styles for this template -->
-  <link href="../cover.css" rel="stylesheet">
+  <link href="cover.css" rel="stylesheet">
 
 </head>
 
