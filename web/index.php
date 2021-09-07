@@ -98,11 +98,9 @@
             }
         }
 
-        while($row = $prepare->fetch()){
-          <!-- ID出力 -->
-          echo "<hr>{$row["m_id"]}:" . "&nbsp;&nbsp;";
-        }
-        
+        $row = $prepare->fetch()
+        var_dump($row);
+        echo $row["m_id"];
       ?>
 
     </main>
