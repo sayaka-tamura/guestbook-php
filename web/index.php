@@ -100,8 +100,7 @@
 
         $row = $prepare->fetch();
         var_dump($row);
-        <!-- echo "ID No. = ".$row['m_id'].PHP_EOL; -->
-        echo "<a class='text-info' href=\"mailto:" . $row["m_mail"] . "\">" . $row["m_name"] . "</a>&nbsp;&nbsp;";
+        echo $row['m_id'];
       ?>
 
     </main>
