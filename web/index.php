@@ -100,7 +100,7 @@
 
         $row = $prepare->fetch();
         var_dump($row);
-        echo "<hr>$row['m_id']";
+        echo "<hr>{$row['m_id']}";
       ?>
 
     </main>
