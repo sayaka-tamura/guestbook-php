@@ -97,6 +97,9 @@
                 return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
             }
         }
+
+        $row = $prepare->fetch();
+        var_dump($row);
       ?>
 
     </main>
