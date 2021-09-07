@@ -50,7 +50,7 @@
         }
     }
     
-    // 取得したデータを一覧表示
+    <!-- // 取得したデータを一覧表示
     while ($row = $stmt->fetch()) {
     // ID出力
     echo "<hr>{$row["m_id"]}:" . "&nbsp;&nbsp;";
@@ -69,7 +69,7 @@
     echo "<button class='btn btn-light'><a class='link-dark' href=\"update.php?m_id=" . $row["m_id"] . "\">Update</a></button>" . "&nbsp;&nbsp;";
     echo "<button class='btn btn-light'><a class='link-dark' href=\"delete-confirm.php?m_id=" . $row["m_id"] . "\">Delete</a></button>" . "&nbsp;&nbsp;";
     echo "<button class='btn btn-light'><a class='link-dark' href=\"detail.php?m_id=" . $row["m_id"] . "\">Detail</a></button>";
-    }
+    } -->
 ?>
 
 <html>
