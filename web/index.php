@@ -99,11 +99,11 @@
         }
 
         <!-- 取得したデータを一覧表示 -->
-        while ($row = $prepare->fetch()) {
-          // ID出力
+        while ($row = $stmt->fetch()) {
+          <!-- ID出力 -->
           echo "<hr>{$row["m_id"]}:" . "&nbsp;&nbsp;";
           if (!empty($row["m_mail"])) {
-            // e-mail が入力されていたら、mailTo のリンク生成
+            <!--  e-mail が入力されていたら、mailTo のリンク生成 -->
             echo "<a class='text-info' href=\"mailto:" . $row["m_mail"] . "\">" . $row["m_name"] . "</a>&nbsp;&nbsp;";
           } else {
             <!-- そうでなければ名前出力 -->
