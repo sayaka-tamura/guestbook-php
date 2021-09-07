@@ -98,9 +98,8 @@
             }
         }
 
-        $row = $prepare->fetch()
+        $row = $prepare->fetch();
         var_dump($row);
-        <!-- echo $row['m_id']; -->
       ?>
 
     </main>
