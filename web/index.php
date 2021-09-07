@@ -1,6 +1,7 @@
 <?php
 
 $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
+var_dump($db);
 $db['dbname'] = ltrim($db['path'], '/');
 $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
 $options = array(
