@@ -1,7 +1,6 @@
 <?php
 
 $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
-<!-- var_dump($db); -->
 $db['dbname'] = ltrim($db['path'], '/');
 $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
 $options = array(
@@ -11,7 +10,7 @@ $options = array(
 );
 
 try {
-    $db = new PDO($dsn, $db['user'], $db['pass'], $options);
+    $db = new PDO($dsn, $db['message'], $db['pass'], $options);
 
     $sql = 'SELECT * FROM message';
     $prepare = $db->prepare($sql);
@@ -35,4 +34,3 @@ function h($var)
         return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
     }
 }
-?>
