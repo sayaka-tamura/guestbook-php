@@ -86,7 +86,7 @@
             $prepare->execute();
 
             // 取得したデータを一覧表示
-            while ($row = $stmt->fetch()) {
+            while ($row = $prepare->fetch()) {
               // ID出力
               echo "<hr>{$row["m_id"]}:" . "&nbsp;&nbsp;";
               if (!empty($row["m_mail"])) {
