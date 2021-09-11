@@ -98,8 +98,8 @@
             }
         }
 
-        $row = $prepare->fetch();
-        var_dump($row);
+        while($row = $prepare->fetch()){
+        // ID出力
         echo "<hr>".$row['m_id'].": &nbsp;&nbsp;";
 
         echo '<a class="text-info" href="mailto:'.$row['m_mail'].'">'.$row['m_name'].'</a>&nbsp;&nbsp;';
@@ -113,6 +113,7 @@
         echo "<button class='btn btn-light'><a class='link-dark' href=\"update.php?m_id=" . $row["m_id"] . "\">Update</a></button>" . "&nbsp;&nbsp;";
         echo "<button class='btn btn-light'><a class='link-dark' href=\"delete-confirm.php?m_id=" . $row["m_id"] . "\">Delete</a></button>" . "&nbsp;&nbsp;";
         echo "<button class='btn btn-light'><a class='link-dark' href=\"detail.php?m_id=" . $row["m_id"] . "\">Detail</a></button>";
+      }
 
       ?>
 
