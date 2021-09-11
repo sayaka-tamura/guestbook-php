@@ -1,5 +1,3 @@
-
-
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -45,7 +43,7 @@
       </header>
 
       <main class="px-3">
-        <?php  echo "{$field}には何か入力してください";  ?>
+        <p><?php  echo "{$field}には何か入力してください";  ?></p>
       </main>
       <footer class="my-5 text-white-50">
         <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
