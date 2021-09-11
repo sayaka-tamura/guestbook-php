@@ -1,44 +1,43 @@
 <?php
-// Session Start
-session_start();
-if (empty($_SESSION)) {
-  echo "Ended this process";
-  exit;
-}
+  // Session Start
+  session_start();
+  if (empty($_SESSION)) {
+    echo "Ended this process";
+    exit;
+  }
 
-require("dbconnect.php");
+  require("dbconnect.php");
 
-//DB接続関数を dbconnet.php から呼び出して接続
-$db = dbConnect();
+  //DB接続関数を dbconnet.php から呼び出して接続
+  $db = dbConnect();
 
-/*
-// 入力内容の取得（$_SESSION から）
-$m_name = htmlspecialchars($_SESSION["m_name"], ENT_QUOTES, "UTF-8");
-$m_mail = htmlspecialchars($_SESSION["m_mail"], ENT_QUOTES, "UTF-8");
-$m_message = htmlspecialchars($_SESSION["m_message"], ENT_QUOTES, "UTF-8");
 
-// データの追加
-$sql = "INSERT INTO message (m_name, m_mail, m_message, m_dt) VALUES (:m_name, :m_mail, :m_message, NOW())";
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(":m_name", $m_name);
-$stmt->bindParam(":m_mail", $m_mail);
-$stmt->bindParam(":m_message", $m_message);
-$stmt->execute();
+  // 入力内容の取得（$_SESSION から）
+  $m_name = htmlspecialchars($_SESSION["m_name"], ENT_QUOTES, "UTF-8");
+  $m_mail = htmlspecialchars($_SESSION["m_mail"], ENT_QUOTES, "UTF-8");
+  $m_message = htmlspecialchars($_SESSION["m_message"], ENT_QUOTES, "UTF-8");
 
-// エラーチェック
-$error = $stmt->errorInfo();
-if ($error[0] != "00000") {
-  $message = "データの追加に失敗しました。{$error[2]}";
-} else {
-  $message = "データを追加しました。データ番号：" . $conn->lastInsertId();
-}
+  // データの追加
+  $sql = "INSERT INTO message (m_name, m_mail, m_message, m_dt) VALUES (:m_name, :m_mail, :m_message, NOW())";
+  $stmt = $db->prepare($sql);
+  $stmt->bindParam(":m_name", $m_name);
+  $stmt->bindParam(":m_mail", $m_mail);
+  $stmt->bindParam(":m_message", $m_message);
+  $stmt->execute();
 
-// セッションデータの破棄
-$_SESSION = array();
-session_destroy();
+  // エラーチェック
+  $error = $stmt->errorInfo();
+  if ($error[0] != "00000") {
+    $message = "データの追加に失敗しました。{$error[2]}";
+  } else {
+    $message = "データを追加しました。データ番号：" . $conn->lastInsertId();
+  }
 
-*/
-var_dump($_SESSION);
+  // セッションデータの破棄
+  $_SESSION = array();
+  session_destroy();
+
+  //var_dump($_SESSION);
 ?>
 
 <!-- 処理結果の表示 -->
