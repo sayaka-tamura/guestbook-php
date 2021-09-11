@@ -6,7 +6,7 @@
     exit;
   }
 
-  require("dbconnect.php");
+  require("template/dbconnect.php");
 
   //DB接続関数を dbconnet.php から呼び出して接続
   $db = dbConnect();
