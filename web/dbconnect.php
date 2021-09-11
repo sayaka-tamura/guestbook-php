@@ -1,5 +1,7 @@
 <?php
 
+  echo "Hello World";
+
   //function dbConnect(){
     $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
     $db['dbname'] = ltrim($db['path'], '/');
