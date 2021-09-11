@@ -69,49 +69,17 @@
       </form>
 
       <?php
-      /*
-        $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
-        $db['dbname'] = ltrim($db['path'], '/');
-        $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
-        $options = array(
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::MYSQL_ATTR_USE_BUFFERED_QUERY =>true,
-        );
-
-        try {
-            $db = new PDO($dsn, $db['user'], $db['pass'], $options);
-
-            $sql = 'SELECT * FROM message';
-            $prepare = $db->prepare($sql);
-            $prepare->execute();
-            
-        } catch (PDOException $e) {
-            echo 'Error: ' . h($e->getMessage());
-        }
-
-        function h($var)
-        {
-            if (is_array($var)) {
-                return array_map('h', $var);
-            } else {
-                return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
-            }
-        }
-        */
 
         require("dbconnect.php");
         
-        greeting();
-
         //DB接続関数を dbconnet.php から呼び出して接続
         $db = dbConnect();
         
         $sql = 'SELECT * FROM message';
-        $prepare = $db->prepare($sql);
-        $prepare->execute();
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
 
-        while($row = $prepare->fetch()){
+        while($row = $stmt->fetch()){
         // ID出力
         echo "<hr>".$row['m_id'].": &nbsp;&nbsp;";
         if(!empty($row["m_mail"])){
