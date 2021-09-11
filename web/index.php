@@ -101,9 +101,13 @@
         while($row = $prepare->fetch()){
         // ID出力
         echo "<hr>".$row['m_id'].": &nbsp;&nbsp;";
-
-        echo '<a class="text-info" href="mailto:'.$row['m_mail'].'">'.$row['m_name'].'</a>&nbsp;&nbsp;';
-        echo $row["m_name"] . "&nbsp;&nbsp;";
+        if(!empty($row["m_mail"])){
+          // e-mail が入力されていたら、mailTo のリンク生成
+          echo '<a class="text-info" href="mailto:'.$row['m_mail'].'">'.$row['m_name'].'</a>&nbsp;&nbsp;';
+        } else{
+          // そうでなければ名前出力
+          echo $row["m_name"] . "&nbsp;&nbsp;";
+        }        
 
         // 日付とメッセージ出力
         echo "(" . date("Y/m/d H:i", strtotime($row["m_dt"])) . ")";
