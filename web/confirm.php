@@ -4,7 +4,7 @@ session_start();
 
 // 入力値の取得・検証・加工
 $m_name = chkString($_POST["m_name"], "Name");
-$m_mail = chkString($_POST["m_mail"], "E-mail address", true); // ture -> check 省略
+$m_mail = chkString($_POST["m_mail"], "E-mail address", true); // true -> check 省略
 $m_message = chkString($_POST["m_message"], "Message");
 
 // 入力値をセッション変数に格納
@@ -17,7 +17,6 @@ function chkString($temp = "", $field, $accept_empty = false)
 {
   // 未入力チェック
   if (empty($temp) and !$accept_empty) {
-    //echo "{$field}には何か入力してください";
     require("alert.php");
     exit;
   }
@@ -94,6 +93,7 @@ function chkString($temp = "", $field, $accept_empty = false)
             <tr>
               <td colspan="2">
                 <input type="submit" class="form-control mt-3 btn btn-info" value="Submit">
+                <input type="button" class="form-control mt-3 btn btn-info" value="To Top Page" onclick="location.href='index.php'">
               </td>
             </tr>
           </table>
