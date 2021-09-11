@@ -87,6 +87,7 @@
             <tr>
               <td colspan="2">
                 <input type="submit" class="form-control mt-3 btn btn-info" name="sub1" value="Confirm">
+                <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='index.php'">
               </td>
             </tr>
           </table>

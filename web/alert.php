@@ -46,7 +46,7 @@
         <p>Error page</p>
         <div class="my-5"><?php  echo "{$field}には何か入力してください";  ?></div>
         <p class="mx-auto col-4">
-          <input type="button" class="form-control mt-3 btn btn-info" value="To Top Page" onclick="location.href='index.php'">
+          <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='index.php'">
         </p>
       </main>
       <footer class="my-5 text-white-50">
