@@ -11,6 +11,7 @@ require("dbconnect.php");
 //DB接続関数を dbconnet.php から呼び出して接続
 $db = dbConnect();
 
+/*
 // 入力内容の取得（$_SESSION から）
 $m_name = htmlspecialchars($_SESSION["m_name"], ENT_QUOTES, "UTF-8");
 $m_mail = htmlspecialchars($_SESSION["m_mail"], ENT_QUOTES, "UTF-8");
@@ -35,7 +36,9 @@ if ($error[0] != "00000") {
 // セッションデータの破棄
 $_SESSION = array();
 session_destroy();
-// var_dump($_SESSION);
+
+*/
+var_dump($_SESSION);
 ?>
 
 <!-- 処理結果の表示 -->
