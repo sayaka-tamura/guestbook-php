@@ -42,8 +42,12 @@
         </div>
       </header>
 
-      <main class="px-3">
-        <p><?php  echo "{$field}には何か入力してください";  ?></p>
+      <main class="px-3 my-5">
+        <p>Delete Completion Page</p>
+        <div class="my-5"><?php  echo "{$field}には何か入力してください";  ?></div>
+        <p class="mx-auto col-4">
+          <input type="button" class="form-control mt-3 btn btn-info" value="To Top Page" onclick="location.href='index.php'">
+        </p>
       </main>
       <footer class="my-5 text-white-50">
         <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
