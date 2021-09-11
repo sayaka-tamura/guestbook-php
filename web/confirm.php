@@ -17,7 +17,8 @@ function chkString($temp = "", $field, $accept_empty = false)
 {
   // 未入力チェック
   if (empty($temp) and !$accept_empty) {
-    echo "{$field}には何か入力してください";
+    //echo "{$field}には何か入力してください";
+    require("alert.php");
     exit;
   }
 
