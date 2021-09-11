@@ -1,20 +1,9 @@
-<html>
-  
-  <?php require("head.php"); ?>
+   <?php require("head.php"); ?>
   
   <body class="d-flex h-100 text-center text-white bg-dark">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-      <header>
-        <div>
-          <h3 class="float-md-start mb-0"><a href="index.php">Guest Book</a></h3>
-          <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="#">Feature</a>
-            <a class="nav-link" href="#">Contact</a>
-          </nav>
-        </div>
-      </header>
+      <?php require("header.php"); ?>
 
       <main class="px-3">
         <form method="post" action="confirm.php">
