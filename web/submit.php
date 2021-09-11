@@ -32,11 +32,12 @@
   } else {
     $message = "データを追加しました。データ番号：" . $conn->lastInsertId();
   }
+*/
 
   // セッションデータの破棄
   $_SESSION = array();
   session_destroy();
-*/
+
   //var_dump($_SESSION);
 ?>
 
