@@ -6,7 +6,7 @@
     exit;
   }
 
-  require("dbconnect.php");
+  require("template/dbconnect.php");
 
   //DB接続関数を dbconnet.php から呼び出して接続
   $db = dbConnect();
@@ -72,51 +72,33 @@
   <link href="css/cover.css" rel="stylesheet">
 </head>
 
-<body class="d-flex h-100 text-center text-white bg-dark">
-  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<?php require("template/head.php"); ?>
 
-    <header>
-      <div>
-        <h3 class="float-md-start mb-0"><a href="index.php">Guest Book</a></h3>
-        <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">Feature</a>
-          <a class="nav-link" href="#">Contact</a>
-        </nav>
-      </div>
-    </header>
+<?php require("template/header.php"); ?>
 
-    <main class="px-3 my-5">
-      <p>Message Completion Page</p>
-      <div class="form-group">
-        <!-- 処理結果を表示 -->
-        <p><?php echo $message; ?></p>
-        <table class=" mx-auto mx-auto my-3 col-6">
-          <tr class="my-2">
-            <td class="my-1">Name</td>
-            <td><?php echo $m_name; ?></td>
-          </tr>
-          <tr class="my-2">
-            <td class="my-1">Email Address</td>
-            <td><?php echo $m_mail; ?></td>
-          </tr>
-          <tr class="my-2">
-            <td class="my-1">Message</td>
-            <td><?php echo nl2br($m_message); ?></td>
-          </tr>
-          <td colspan="2">
-            <input type="button" class="form-control mt-3 btn btn-info" value="To Top Page" onClick="location.href='index.php'">
-          </td>
-        </table>
-      </div>
-    </main>
-    <footer class="my-5 text-white-50">
-      <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
-    </footer>
-
+<main class="px-3 my-5">
+  <p>Message Completion Page</p>
+  <div class="form-group">
+    <!-- 処理結果を表示 -->
+    <p><?php echo $message; ?></p>
+    <table class=" mx-auto mx-auto my-3 col-6">
+      <tr class="my-2">
+        <td class="my-1">Name</td>
+        <td><?php echo $m_name; ?></td>
+      </tr>
+      <tr class="my-2">
+        <td class="my-1">Email Address</td>
+        <td><?php echo $m_mail; ?></td>
+      </tr>
+      <tr class="my-2">
+        <td class="my-1">Message</td>
+        <td><?php echo nl2br($m_message); ?></td>
+      </tr>
+      <td colspan="2">
+        <input type="button" class="form-control mt-3 btn btn-info" value="To Top Page" onClick="location.href='index.php'">
+      </td>
+    </table>
   </div>
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-</body>
+</main>
 
-</html>
+<?php require("template/footer.php"); ?>
