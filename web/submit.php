@@ -6,21 +6,10 @@ if (empty($_SESSION)) {
   exit;
 }
 
-// 接続設定
-$dbtype = "mysql";
-$sv = "localhost";
-$dbname = "guestbook";
-$user = "root";
-$pass = "password";
+require("dbconnect.php");
 
-// DB に接続
-try {
-  $dsn = "$dbtype:dbname=$dbname;host=$sv";
-  $conn = new PDO($dsn, $user, $pass);
-} catch (PDOException $e) {
-  print "Connection Error: {$e->getMessage()}";
-  exit;
-}
+//DB接続関数を dbconnet.php から呼び出して接続
+$db = dbConnect();
 
 // 入力内容の取得（$_SESSION から）
 $m_name = htmlspecialchars($_SESSION["m_name"], ENT_QUOTES, "UTF-8");
