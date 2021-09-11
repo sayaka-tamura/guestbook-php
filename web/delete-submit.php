@@ -1,41 +1,36 @@
 <?php
-// Session Start
-session_start();
-if (empty($_SESSION)) {
-  echo "Ended this process";
-  exit;
-}
-// 接続設定
-$dbtype = "mysql";
-$sv = "localhost";
-$dbname = "guestbook";
-$user = "root";
-$pass = "password";
+  // Session Start
+  session_start();
+  if (empty($_SESSION)) {
+    echo "Ended this process";
+    exit;
+  }
 
-// DB に接続
-$dsn = "$dbtype:dbname=$dbname;host=$sv";
-$conn = new PDO($dsn, $user, $pass);
+  require("dbconnect.php");
 
-// 削除データの主キーを取得
-$m_id = $_SESSION["m_id"];
+  //DB接続関数を dbconnet.php から呼び出して接続
+  $db = dbConnect();
 
-// データを削除
-$sql = "DELETE FROM message WHERE (m_id=:m_id);";
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(":m_id", $m_id);
-$stmt->execute();
+  // 削除データの主キーを取得
+  $m_id = $_SESSION["m_id"];
 
-// エラーチェック
-$error = $stmt->errorInfo();
-if ($error[0] != "00000") {
-  $message = "データの削除に失敗しました。{$error[2]}";
-} else {
-  $message = "データを削除しました。";
-}
+  // データを削除
+  $sql = "DELETE FROM message WHERE (m_id=:m_id);";
+  $stmt = $db->prepare($sql);
+  $stmt->bindParam(":m_id", $m_id);
+  $stmt->execute();
 
-// セッションデータの破棄
-$_SESSION = array();
-session_destroy();
+  // エラーチェック
+  $error = $stmt->errorInfo();
+  if ($error[0] != "00000") {
+    $message = "データの削除に失敗しました。{$error[2]}";
+  } else {
+    $message = "データを削除しました。";
+  }
+
+  // セッションデータの破棄
+  $_SESSION = array();
+  session_destroy();
 ?>
 
 <!-- 処理結果の表示 -->
