@@ -102,6 +102,9 @@
 
         require("dbconnet.php");
 
+        //DB接続関数を dbconnet.php から呼び出して接続
+        $db = dbConnect();
+        
         $sql = 'SELECT * FROM message';
         $prepare = $db->prepare($sql);
         $prepare->execute();

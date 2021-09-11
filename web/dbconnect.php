@@ -1,8 +1,8 @@
 <?php
 
-  echo "Hello World";
+  print("Hello World!\n");
 
-  //function dbConnect(){
+  function dbConnect(){
     $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
     $db['dbname'] = ltrim($db['path'], '/');
     $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
@@ -18,7 +18,7 @@
     } catch (PDOException $e) {
         echo 'Error: ' . h($e->getMessage());
     }
-  //}
+  }
 
   function h($var)
   {
@@ -28,8 +28,5 @@
           return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
       }
   }
-
-  //DB接続関数を呼び出して接続
-  //$db = dbConnect();
   
 ?>
