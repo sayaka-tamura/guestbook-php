@@ -104,6 +104,16 @@
 
         echo '<a class="text-info" href="mailto:'.$row['m_mail'].'">'.$row['m_name'].'</a>&nbsp;&nbsp;';
         echo $row["m_name"] . "&nbsp;&nbsp;";
+
+        // 日付とメッセージ出力
+        echo "(" . date("Y/m/d H:i", strtotime($row["m_dt"])) . ")";
+        echo "<p>" . nl2br($row["m_message"]) . "</p>";
+
+        // 変更・削除・詳細表示画面へのリンク
+        echo "<button class='btn btn-light'><a class='link-dark' href=\"update.php?m_id=" . $row["m_id"] . "\">Update</a></button>" . "&nbsp;&nbsp;";
+        echo "<button class='btn btn-light'><a class='link-dark' href=\"delete-confirm.php?m_id=" . $row["m_id"] . "\">Delete</a></button>" . "&nbsp;&nbsp;";
+        echo "<button class='btn btn-light'><a class='link-dark' href=\"detail.php?m_id=" . $row["m_id"] . "\">Detail</a></button>";
+
       ?>
 
     </main>
