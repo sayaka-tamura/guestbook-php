@@ -93,7 +93,7 @@ function chkString($temp = "", $field, $accept_empty = false)
             <tr>
               <td colspan="2">
                 <input type="submit" class="form-control mt-3 btn btn-info" value="Submit">
-                <input type="button" class="form-control mt-3 btn btn-info" value="To Top Page" onclick="location.href='index.php'">
+                <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='index.php'">
               </td>
             </tr>
           </table>
