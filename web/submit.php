@@ -24,7 +24,7 @@
   $stmt->bindParam(":m_mail", $m_mail);
   $stmt->bindParam(":m_message", $m_message);
   $stmt->execute();
-
+/*
   // エラーチェック
   $error = $stmt->errorInfo();
   if ($error[0] != "00000") {
@@ -36,7 +36,7 @@
   // セッションデータの破棄
   $_SESSION = array();
   session_destroy();
-
+*/
   //var_dump($_SESSION);
 ?>
 
