@@ -101,6 +101,8 @@
         */
 
         require("dbconnect.php");
+        
+        greeting();
 
         //DB接続関数を dbconnet.php から呼び出して接続
         $db = dbConnect();
@@ -129,8 +131,6 @@
         echo "<button class='btn btn-light'><a class='link-dark' href=\"delete-confirm.php?m_id=" . $row["m_id"] . "\">Delete</a></button>" . "&nbsp;&nbsp;";
         echo "<button class='btn btn-light'><a class='link-dark' href=\"detail.php?m_id=" . $row["m_id"] . "\">Detail</a></button>";
       }
-
-      var_dump($row);
 
       ?>
 
