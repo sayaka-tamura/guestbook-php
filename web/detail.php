@@ -78,7 +78,7 @@
             <td><?php echo nl2br($row["m_message"]); ?></td>
           </tr>
           <td colspan="2">
-            <input type="button" class="form-control mt-3 btn btn-info" value="To Top Page" onClick="location.href='index.php'">
+            <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onClick="location.href='index.php'">
           </td>
         </table>
     </main>

@@ -92,6 +92,7 @@
             <tr class="my-2">
               <td colspan="2">
                 <input type="submit" class="form-control mt-3 btn btn-info" value="Update">
+                <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='index.php'">
               </td>
             </tr>
           </table>
