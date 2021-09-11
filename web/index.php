@@ -102,6 +102,8 @@
         var_dump($row);
         echo "<hr>".$row['m_id'].": &nbsp;&nbsp;";
 
+        echo '<a class="text-info" href="mailto:'.$row['m_mail'].'">'.$row['m_name'].'</a>&nbsp;&nbsp;';
+
       ?>
 
     </main>
