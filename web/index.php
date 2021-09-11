@@ -69,7 +69,7 @@
       </form>
 
       <?php
-        $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
+        <!-- $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
         $db['dbname'] = ltrim($db['path'], '/');
         $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
         $options = array(
@@ -96,7 +96,12 @@
             } else {
                 return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
             }
-        }
+        } -->
+        require("dbconnet.php");
+
+        $sql = 'SELECT * FROM message';
+        $prepare = $db->prepare($sql);
+        $prepare->execute();
 
         while($row = $prepare->fetch()){
         // ID出力
