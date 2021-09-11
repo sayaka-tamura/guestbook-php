@@ -1,6 +1,8 @@
 <?php
 
-  print("Hello World!\n");
+  function greeting(){
+    echo "Hello!";
+  }
 
   function dbConnect(){
     $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
