@@ -1,28 +1,22 @@
 <?php
-// 表示するデータの主キーを取得
-if (!isset($_GET["m_id"])) {
-  exit;
-} else {
-  $m_id = $_GET["m_id"];
-}
+  // 表示するデータの主キーを取得
+  if (!isset($_GET["m_id"])) {
+    exit;
+  } else {
+    $m_id = $_GET["m_id"];
+  }
 
-// 接続設定
-$dbtype = "mysql";
-$sv = "localhost";
-$dbname = "guestbook";
-$user = "root";
-$pass = "password";
+  require("dbconnect.php");
 
-// DB 接続
-$dsn = "$dbtype:dbname=$dbname;host=$sv";
-$conn = new PDO($dsn, $user, $pass);
+  //DB接続関数を dbconnet.php から呼び出して接続
+  $db = dbConnect();
 
-// データの取得（1件のみ）
-$sql = "SELECT * FROM message WHERE (m_id = :m_id);";
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(":m_id", $m_id);
-$stmt->execute();
-$row = $stmt->fetch();
+  // データの取得（1件のみ）
+  $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
+  $stmt = $db->prepare($sql);
+  $stmt->bindParam(":m_id", $m_id);
+  $stmt->execute();
+  $row = $stmt->fetch();
 ?>
 <html>
 
