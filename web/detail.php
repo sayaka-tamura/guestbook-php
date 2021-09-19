@@ -43,7 +43,11 @@
         <td><?php echo nl2br($row["m_message"]); ?></td>
       </tr>
       <td colspan="2">
-        <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='<?= $r ?>'">
+        <?php
+          if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
+        ?>
+          <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='<?= $r ?>'">
+        <?php endif ?>
       </td>
     </table>
 </main>

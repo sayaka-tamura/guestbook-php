@@ -21,6 +21,10 @@
   $stmt->bindParam(":m_id", $m_id);
   $stmt->execute();
   $row = $stmt->fetch();
+
+  // Importing info for "Go Back Button"
+  require("template/functions.php");
+  list($h, $r) = severInfo();
 ?>
 
 <?php require("template/head.php"); ?>
@@ -47,7 +51,11 @@
         <tr class="my-2">
           <td colspan="2">
             <input type="submit" class="form-control mt-3 btn btn-info" class="form-control mt-3 btn btn-info"  name="sub1" value="Delete">
-            <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='index.php'">
+            <?php
+              if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
+            ?>
+              <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='<?= $r ?>'">
+            <?php endif ?>
           </td>
         </tr>
       </table>
