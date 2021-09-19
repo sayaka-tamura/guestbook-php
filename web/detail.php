@@ -11,6 +11,10 @@
   //DB接続関数を dbconnet.php から呼び出して接続
   $db = dbConnect();
 
+  // Importing info for "Go Back Button"
+  require("template/functions.php");
+  list($h, $r) = severInfo();
+
   // データの取得（1件のみ）
   $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
   $stmt = $db->prepare($sql);
@@ -39,7 +43,7 @@
         <td><?php echo nl2br($row["m_message"]); ?></td>
       </tr>
       <td colspan="2">
-        <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onClick="location.href='index.php'">
+        <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='<?= $r ?>'">
       </td>
     </table>
 </main>
