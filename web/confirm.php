@@ -5,6 +5,7 @@
   require("template/functions.php");
 
   $severInfo = severInfo();
+  var_dump($severInfo);
   var_dump($severInfo["r"]);
   var_dump($severInfo["h"]);
 
