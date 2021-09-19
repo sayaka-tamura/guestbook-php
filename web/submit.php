@@ -5,12 +5,15 @@
     echo "Ended this process";
     exit;
   }
-
+  
   require("template/dbconnect.php");
 
   //DB接続関数を dbconnet.php から呼び出して接続
   $db = dbConnect();
 
+  // Importing info for "Go Back Button"
+  require("template/functions.php");
+  list($h, $r) = severInfo();
 
   // 入力内容の取得（$_SESSION から）
   $m_name = htmlspecialchars($_SESSION["m_name"], ENT_QUOTES, "UTF-8");
@@ -65,7 +68,7 @@
         <td><?php echo nl2br($m_message); ?></td>
       </tr>
       <td colspan="2">
-        <input type="button" class="form-control mt-3 btn btn-info" value="To Top Page" onClick="location.href='index.php'">
+        <input type="button" class="form-control mt-3 btn btn-info" value="To Top Page" onclick="location.href='<?= $r ?>'">
       </td>
     </table>
   </div>

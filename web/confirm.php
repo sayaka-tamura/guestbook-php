@@ -2,11 +2,9 @@
   // Session Start
   session_start();
 
+  // Importing info for "Go Back Button"
   require("template/functions.php");
-
   list($h, $r) = severInfo();
-  var_dump($h);
-  var_dump($r);
 
   // 入力値の取得・検証・加工
   $m_name = chkString($_POST["m_name"], "Name");
