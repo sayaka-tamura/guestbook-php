@@ -4,7 +4,7 @@
 
   require("template/functions.php");
 
-  severInfo();
+  $severInfo = severInfo();
 
   // 入力値の取得・検証・加工
   $m_name = chkString($_POST["m_name"], "Name");
@@ -62,7 +62,7 @@
             <?php
               if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
             ?>
-              <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='<?= $r ?>'">
+              <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='<?= $severInfo["r"] ?>'">
             <?php endif ?>
           </td>
         </tr>
