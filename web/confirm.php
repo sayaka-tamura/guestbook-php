@@ -2,8 +2,9 @@
   // Session Start
   session_start();
 
-  $h = $_SERVER['HTTP_HOST'];
-  $r = $_SERVER['HTTP_REFERER'];
+  require("template/functions.php");
+
+  severInfo();
 
   // 入力値の取得・検証・加工
   $m_name = chkString($_POST["m_name"], "Name");
