@@ -5,7 +5,8 @@
   require("template/functions.php");
 
   $severInfo = severInfo();
-  var_dump($severInfo);
+  var_dump($severInfo[$r]);
+  var_dump($severInfo[$h]);
 
   // 入力値の取得・検証・加工
   $m_name = chkString($_POST["m_name"], "Name");
