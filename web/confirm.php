@@ -5,9 +5,6 @@
   $h = $_SERVER['HTTP_HOST'];
   $r = $_SERVER['HTTP_REFERER'];
 
-  var_dump($h);
-  var_dump($r);
-
   // 入力値の取得・検証・加工
   $m_name = chkString($_POST["m_name"], "Name");
   $m_mail = chkString($_POST["m_mail"], "E-mail address", true); // true -> check 省略
@@ -60,7 +57,12 @@
         <tr>
           <td colspan="2">
             <input type="submit" class="form-control mt-3 btn btn-info" value="Submit">
-            <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='index.php'">
+
+            <?php
+              if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
+            ?>
+              <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='<?= $r ?>'">
+            <?php endif ?>
           </td>
         </tr>
       </table>
