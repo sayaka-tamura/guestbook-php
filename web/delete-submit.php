@@ -14,6 +14,10 @@
   // 削除データの主キーを取得
   $m_id = $_SESSION["m_id"];
 
+  require("template/functions.php");
+  $message = deleteMsg($db, $m_id);
+
+/*
   // データを削除
   $sql = "DELETE FROM message WHERE (m_id=:m_id);";
   $stmt = $db->prepare($sql);
@@ -27,7 +31,7 @@
   } else {
     $message = "データを削除しました。";
   }
-
+*/
   // セッションデータの破棄
   $_SESSION = array();
   session_destroy();

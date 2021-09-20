@@ -50,7 +50,7 @@
     return $message;
   
   }
-  
+
   // CRUD methods (UPDATE)
   function updateMsg($db, $m_id, $m_name, $m_mail, $m_message){
     // データの追加
@@ -72,5 +72,24 @@
 
     return $message;
   }
+
+    // CRUD methods (DELETE)
+    function deleteMsg($db, $m_id){
+      // データを削除
+      $sql = "DELETE FROM message WHERE (m_id=:m_id);";
+      $stmt = $db->prepare($sql);
+      $stmt->bindParam(":m_id", $m_id);
+      $stmt->execute();
+
+      // エラーチェック
+      $error = $stmt->errorInfo();
+      if ($error[0] != "00000") {
+        $message = "データの削除に失敗しました。{$error[2]}";
+      } else {
+        $message = "データを削除しました。";
+      }
+
+      return $message; 
+    }
 
 ?>

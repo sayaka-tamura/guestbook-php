@@ -17,6 +17,8 @@
   $m_message = htmlspecialchars($_SESSION["m_message"], ENT_QUOTES, "UTF-8");
 
   require("template/functions.php");
+  
+  // CRUD methods (CREATE)
   $message = insertMsg($db, $m_name, $m_mail, $m_message);
 
   // セッションデータの破棄
