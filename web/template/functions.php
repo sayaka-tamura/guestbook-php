@@ -6,7 +6,6 @@
 
       return array($h, $r);
   }
-
   
   function getPrimaryKey(){
 
@@ -21,9 +20,8 @@
 
   }
 
-  /*
   // CRUD methods (READ)
-  function selectInfo($db){
+  function selectInfoAll($db, $m_id){
     $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(":m_id", $m_id);
@@ -31,5 +29,5 @@
     $row = $stmt->fetch();
     return $row;
   }
-  */
+
 ?>
