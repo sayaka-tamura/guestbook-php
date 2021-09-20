@@ -17,7 +17,7 @@
 
   // 変更するデータの取得
   require("template/functions.php");
-  $row = SelectInfo();
+  $row = SelectInfo($db);
   var_dump($row);
   
   /*

@@ -8,7 +8,7 @@
   }
 
   // CRUD methods (READ)
-  function SelectInfo(){
+  function SelectInfo($db){
     $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(":m_id", $m_id);
