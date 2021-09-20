@@ -3,13 +3,7 @@
   session_start();
 
   require("template/functions.php");
-  var_dump($_GET);
-
-  //$m_id = getPrimaryKey();  // 表示するデータの主キーを取得
-
-  //echo "This is $m_id: ".var_dump($m_id)
-  //echo "This is $_SESSION["m_id"]: ".var_dump($_SESSION["m_id"]);
-
+  
   // 表示するデータの主キーを取得
   if (!isset($_GET["m_id"])) {
     exit;
