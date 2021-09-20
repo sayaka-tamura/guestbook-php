@@ -6,7 +6,7 @@
 
       return array($h, $r);
   }
-  /*
+  
   function getPrimaryKey($_GET["m_id"]){
     if (!isset($_GET["m_id"])) {
       exit;
@@ -18,7 +18,8 @@
     // echo "from functions.php, $GET["m_id"]: ".var_dump($_GET["m_id"]);
     // echo "from functions.php, $GET["m_id"]: ".var_dump($_SESSION["m_id"]);
   }
-
+  
+  /*
   // CRUD methods (READ)
   function selectInfo($db){
     $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
