@@ -2,14 +2,18 @@
   // Session Start
   session_start();
 
+  require("template/functions.php");
+  $m_id = getPrimaryKey($_GET["m_id"]);
+
   // 表示するデータの主キーを取得
+  /*
   if (!isset($_GET["m_id"])) {
     exit;
   } else {
-    var_dump($_GET);
     $m_id = $_GET["m_id"];
     $_SESSION["m_id"] = $m_id;  //主キーを$_SESSIONに格納
   }
+  */
 
   require("template/dbconnect.php");
 
@@ -24,7 +28,6 @@
   $row = $stmt->fetch();
 
   // Importing info for "Go Back Button"
-  require("template/functions.php");
   list($h, $r) = severInfo();
 ?>
 
