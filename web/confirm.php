@@ -57,15 +57,15 @@
       <table class=" mx-auto mx-auto my-4 col-6">
         <tr class="my-2">
           <td class="my-1">Name : </td>
-          <td><?php echo $m_name; ?></td>
+          <td><?php echo $temp_array['m_name']; ?></td>
         </tr>
         <tr class="my-2">
           <td class="my-1">Email Address : </td>
-          <td><?php echo $m_mail; ?></td>
+          <td><?php echo temp_array['m_mail']; ?></td>
         </tr>
         <tr class="my-2">
           <td class="my-1">Message : </td>
-          <td><?php echo nl2br($m_message); ?></td>
+          <td><?php echo nl2br(temp_array['m_message']); ?></td>
         </tr>
         <tr>
           <td colspan="2">
