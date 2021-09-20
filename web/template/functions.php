@@ -9,6 +9,9 @@
 
   
   function getPrimaryKey(){
+
+    var_dump($_GET["m_id"]);
+    
     if (!isset($_GET["m_id"])) {
       exit;
     } else {
@@ -16,8 +19,8 @@
       $_SESSION["m_id"] = $m_id;  //主キーを$_SESSIONに格納
     }
 
-    echo "from functions.php, $GET["m_id"]: ".var_dump($_GET["m_id"]);
-    echo "from functions.php, $GET["m_id"]: ".var_dump($_SESSION["m_id"]);
+    //echo "from functions.php, $GET["m_id"]: ".var_dump($_GET["m_id"]);
+    //echo "from functions.php, $GET["m_id"]: ".var_dump($_SESSION["m_id"]);
 
     return $m_id;
 
