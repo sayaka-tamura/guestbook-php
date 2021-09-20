@@ -11,7 +11,7 @@
   function getPrimaryKey(){
 
     var_dump($_GET["m_id"]);
-    var_dump($_SESSION["m_id"]);
+    echo "Before: ".$_SESSION["m_id"];
 
     if (!isset($_GET["m_id"])) {
       exit;
@@ -19,6 +19,8 @@
       $m_id = $_GET["m_id"];
       $_SESSION["m_id"] = $m_id;  //主キーを$_SESSIONに格納
     }
+
+    echo "After: ".$_SESSION["m_id"];
 
     return $m_id;
 
