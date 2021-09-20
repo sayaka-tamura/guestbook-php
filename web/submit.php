@@ -40,8 +40,6 @@
   // セッションデータの破棄
   $_SESSION = array();
   session_destroy();
-
-  //var_dump($_SESSION);
 ?>
 
 <!-- 処理結果の表示 -->
