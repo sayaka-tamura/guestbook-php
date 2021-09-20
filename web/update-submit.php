@@ -17,6 +17,10 @@
   $m_mail = htmlspecialchars($_SESSION["m_mail"], ENT_QUOTES, "UTF-8");
   $m_message = htmlspecialchars($_SESSION["m_message"], ENT_QUOTES, "UTF-8");
 
+  require("template/functions.php");
+  $message = updateMsg($db, $m_id, $m_name, $m_mail, $m_message);
+
+  /*
   // データの追加
   $sql = "UPDATE message SET m_name=:m_name, m_mail=:m_mail, m_message=:m_message, m_dt=NOW() WHERE m_id=:m_id";
   $stmt = $db->prepare($sql);
@@ -33,7 +37,8 @@
   } else {
     $message = "データを変更しました。";
   }
-
+  */
+  
   // セッションデータの破棄
   $_SESSION = array();
   session_destroy();

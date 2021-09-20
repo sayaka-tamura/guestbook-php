@@ -19,25 +19,6 @@
   require("template/functions.php");
   $message = insertMsg($db, $m_name, $m_mail, $m_message);
 
-  /*
-  // データの追加
-    $sql = "INSERT INTO message (m_name, m_mail, m_message, m_dt) VALUES (:m_name, :m_mail, :m_message, NOW())";
-    $stmt = $db->prepare($sql);
-    $stmt->bindParam(":m_name", $m_name);
-    $stmt->bindParam(":m_mail", $m_mail);
-    $stmt->bindParam(":m_message", $m_message);
-    $stmt->execute();
-  
-
-  // エラーチェック
-  $error = $stmt->errorInfo();
-  if ($error[0] != "00000") {
-    $message = "データの追加に失敗しました。{$error[2]}";
-  } else {
-    $message = "データを追加しました。データ番号：" . $db->lastInsertId();
-  }
-  */
-
   // セッションデータの破棄
   $_SESSION = array();
   session_destroy();
