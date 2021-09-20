@@ -3,8 +3,8 @@
   session_start();
 
   require("template/functions.php");
-  var_dump($_GET[]);
-  
+  var_dump($_GET);
+
   //$m_id = getPrimaryKey();  // 表示するデータの主キーを取得
 
   //echo "This is $m_id: ".var_dump($m_id)
