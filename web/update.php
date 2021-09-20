@@ -6,6 +6,7 @@
   if (!isset($_GET["m_id"])) {
     exit;
   } else {
+    var_dump($_GET);
     $m_id = $_GET["m_id"];
     $_SESSION["m_id"] = $m_id;  //主キーを$_SESSIONに格納
   }
