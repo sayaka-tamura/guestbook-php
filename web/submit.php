@@ -16,6 +16,7 @@
   $m_mail = htmlspecialchars($_SESSION["m_mail"], ENT_QUOTES, "UTF-8");
   $m_message = htmlspecialchars($_SESSION["m_message"], ENT_QUOTES, "UTF-8");
 
+  require("template/functions.php");
   $message = insertMsg($db, $m_name, $m_mail, $m_message);
 
   /*

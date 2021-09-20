@@ -39,7 +39,6 @@
     $stmt->bindParam(":m_message", $m_message);
     $stmt->execute();
 
-  /*
     // エラーチェック
     $error = $stmt->errorInfo();
     if ($error[0] != "00000") {
@@ -49,7 +48,7 @@
     }
 
     return $message;
-  */
+  
   }
 
 ?>
