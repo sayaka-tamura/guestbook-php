@@ -11,34 +11,6 @@
   //POSTされたデータをチェック
   $_POST = checkInput($_POST);
 
-  /*
-  // 入力値の取得・検証・加工
-  $m_name = chkString($_POST["m_name"], "Name");
-  $m_mail = chkString($_POST["m_mail"], "E-mail address", true); // true -> check 省略
-  $m_message = chkString($_POST["m_message"], "Message");
-
-  // 入力値をセッション変数に格納
-  $_SESSION["m_name"] = $m_name;
-  $_SESSION["m_mail"] = $m_mail;
-  $_SESSION["m_message"] = $m_message;
-
-
-  // 入力値の検証・加工
-  function chkString($temp = "", $field, $accept_empty = false)
-  {
-    // 未入力チェック
-    if (empty($temp) and !$accept_empty) {
-      require("alert.php");
-      exit;
-    }
-
-    // 入力内容を安全な値に
-    $temp = htmlspecialchars($temp, ENT_QUOTES, "UTF-8");
-
-    // 戻り値
-    return $temp;
-  }
-  */
 ?>
 
 <?php require("template/head.php"); ?>
