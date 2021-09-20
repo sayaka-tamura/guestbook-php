@@ -3,9 +3,9 @@
   session_start();
 
   require("template/functions.php");
-  testGET();
-  //$m_id = getPrimaryKey($_GET["m_id"]);
+  $m_id = getPrimaryKey();
 
+  /*
   // 表示するデータの主キーを取得
   if (!isset($_GET["m_id"])) {
     exit;
@@ -13,7 +13,7 @@
     $m_id = $_GET["m_id"];
     $_SESSION["m_id"] = $m_id;  //主キーを$_SESSIONに格納
   }
-  
+  */
 
   require("template/dbconnect.php");
 
