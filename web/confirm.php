@@ -6,6 +6,12 @@
   require("template/functions.php");
   list($h, $r) = severInfo();
 
+  require 'template/validation.php';  //関数のファイルの読み込み
+
+  //POSTされたデータをチェック
+  $_POST = checkInput($_POST);
+
+  /*
   // 入力値の取得・検証・加工
   $m_name = chkString($_POST["m_name"], "Name");
   $m_mail = chkString($_POST["m_mail"], "E-mail address", true); // true -> check 省略
@@ -15,6 +21,7 @@
   $_SESSION["m_name"] = $m_name;
   $_SESSION["m_mail"] = $m_mail;
   $_SESSION["m_message"] = $m_message;
+
 
   // 入力値の検証・加工
   function chkString($temp = "", $field, $accept_empty = false)
@@ -31,12 +38,17 @@
     // 戻り値
     return $temp;
   }
-
+  */
 ?>
 
 <?php require("template/head.php"); ?>
 
 <?php require("template/header.php"); ?>
+
+<?php
+  // 入力エラーチェック
+  $temp_array = errorCheck($_POST); 
+?>
 
 <main class="px-3 my-5">
 <p>Message Confirmation Page</p>
