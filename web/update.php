@@ -5,6 +5,8 @@
   require("template/functions.php");
   $m_id = getPrimaryKey();
 
+  var_dump($_SESSION["m_id"]);
+  
   /*
   // 表示するデータの主キーを取得
   if (!isset($_GET["m_id"])) {
