@@ -2,28 +2,23 @@
   // Session Start
   session_start();
 
+  require("template/functions.php");
+  
   // 表示するデータの主キーを取得
-  if (!isset($_GET["m_id"])) {
-    exit;
-  } else {
-    $m_id = $_GET["m_id"];
-    $_SESSION["m_id"] = $m_id;  //主キーを$_SESSIONに格納
-  }
+  $m_id = getPrimaryKey();
+  
+  //主キーを$_SESSIONに格納
+  $_SESSION["m_id"] = $m_id;  
 
   require("template/dbconnect.php");
 
   //DB接続関数を dbconnet.php から呼び出して接続
   $db = dbConnect();
 
-  // 変更するデータの取得
-  $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
-  $stmt = $db->prepare($sql);
-  $stmt->bindParam(":m_id", $m_id);
-  $stmt->execute();
-  $row = $stmt->fetch();
+  //任意の Primary Key に応じたメッセージ内容を表示
+  $row = selectInfoOne($db, $m_id);
 
   // Importing info for "Go Back Button"
-  require("template/functions.php");
   list($h, $r) = severInfo();
 ?>
 
