@@ -16,14 +16,19 @@
   $db = dbConnect();
 
   // 変更するデータの取得
-  $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
-  $stmt = $db->prepare($sql);
-  $stmt->bindParam(":m_id", $m_id);
-  $stmt->execute();
-  $row = $stmt->fetch();
+  require("template/functions.php");
+  $row = SelectInfo();
+  var_dump($row);
+  
+  /*
+    $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(":m_id", $m_id);
+    $stmt->execute();
+    $row = $stmt->fetch();
+  */
 
   // Importing info for "Go Back Button"
-  require("template/functions.php");
   list($h, $r) = severInfo();
 ?>
 
