@@ -15,23 +15,10 @@
   $m_id = $_SESSION["m_id"];
 
   require("template/functions.php");
+  
+  // CRUD methods (DELETE)
   $message = deleteMsg($db, $m_id);
 
-/*
-  // データを削除
-  $sql = "DELETE FROM message WHERE (m_id=:m_id);";
-  $stmt = $db->prepare($sql);
-  $stmt->bindParam(":m_id", $m_id);
-  $stmt->execute();
-
-  // エラーチェック
-  $error = $stmt->errorInfo();
-  if ($error[0] != "00000") {
-    $message = "データの削除に失敗しました。{$error[2]}";
-  } else {
-    $message = "データを削除しました。";
-  }
-*/
   // セッションデータの破棄
   $_SESSION = array();
   session_destroy();
