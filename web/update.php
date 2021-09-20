@@ -6,7 +6,7 @@
   
   // 表示するデータの主キーを取得
   $m_id = getPrimaryKey();
-  
+
   //主キーを$_SESSIONに格納
   $_SESSION["m_id"] = $m_id;  
 
@@ -16,7 +16,7 @@
   $db = dbConnect();
   
   //任意の Primary Key に応じたメッセージ内容を表示
-  $row = selectInfoOne($db, $m_id);
+  $row = selectMsgOne($db, $m_id);
 
   // Importing info for "Go Back Button"
   list($h, $r) = severInfo();
