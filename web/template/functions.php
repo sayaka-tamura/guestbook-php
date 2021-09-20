@@ -7,8 +7,17 @@
       return array($h, $r);
   }
 
+  function getPrimaryKey(){
+    if (!isset($_GET["m_id"])) {
+      exit;
+    } else {
+      $m_id = $_GET["m_id"];
+      $_SESSION["m_id"] = $m_id;  //主キーを$_SESSIONに格納
+    }
+  }
+
   // CRUD methods (READ)
-  function SelectInfo($db){
+  function selectInfo($db){
     $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(":m_id", $m_id);

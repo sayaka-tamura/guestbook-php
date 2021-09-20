@@ -2,31 +2,40 @@
   // Session Start
   session_start();
 
-  // 表示するデータの主キーを取得
+  require("template/functions.php");
+  $m_id = getPrimaryKey();  // 表示するデータの主キーを取得
+
+  echo "This is $m_id: ".var_dump($m_id)
+  echo "This is $_SESSION["m_id"]: ".var_dump($_SESSION["m_id"]);
+
+  /*
   if (!isset($_GET["m_id"])) {
     exit;
   } else {
     $m_id = $_GET["m_id"];
     $_SESSION["m_id"] = $m_id;  //主キーを$_SESSIONに格納
   }
+  */
 
   require("template/dbconnect.php");
 
   //DB接続関数を dbconnet.php から呼び出して接続
   $db = dbConnect();
-
-  // 変更するデータの取得
-  require("template/functions.php");
-  $row = SelectInfo($db);
-  var_dump($row);
+        /*
+        echo "This is $db: ".var_dump($db);
+        */
+        
+        // 変更するデータの取得
+        /*
+        $row = selectInfo($db);
+        echo "This is $row: "var_dump($row);
+        */
   
-  /*
-    $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
-    $stmt = $db->prepare($sql);
-    $stmt->bindParam(":m_id", $m_id);
-    $stmt->execute();
-    $row = $stmt->fetch();
-  */
+  $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
+  $stmt = $db->prepare($sql);
+  $stmt->bindParam(":m_id", $m_id);
+  $stmt->execute();
+  $row = $stmt->fetch();
 
   // Importing info for "Go Back Button"
   list($h, $r) = severInfo();
