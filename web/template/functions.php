@@ -6,7 +6,7 @@
 
       return array($h, $r);
   }
-
+  /*
   function getPrimaryKey(){
     if (!isset($_GET["m_id"])) {
       exit;
@@ -28,4 +28,5 @@
     $row = $stmt->fetch();
     return $row;
   }
+  */
 ?>
