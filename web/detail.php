@@ -1,26 +1,20 @@
 <?php
+
+  require("template/functions.php");
   // 表示するデータの主キーを取得
-  if (!isset($_GET["m_id"])) {
-    exit;
-  } else {
-    $m_id = $_GET["m_id"];
-  }
+  $m_id = getPrimaryKey();
 
   require("template/dbconnect.php");
 
   //DB接続関数を dbconnet.php から呼び出して接続
   $db = dbConnect();
 
+  //任意の Primary Key に応じたメッセージ内容を表示
+  $row = selectInfoOne($db, $m_id);
+
   // Importing info for "Go Back Button"
-  require("template/functions.php");
   list($h, $r) = severInfo();
 
-  // データの取得（1件のみ）
-  $sql = "SELECT * FROM message WHERE (m_id = :m_id);";
-  $stmt = $db->prepare($sql);
-  $stmt->bindParam(":m_id", $m_id);
-  $stmt->execute();
-  $row = $stmt->fetch();
 ?>
 
 <?php require("template/head.php"); ?>
